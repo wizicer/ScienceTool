@@ -7,6 +7,7 @@ const count = ref(0)
 </script>
 
 <template>
+  HOMEPAGE
   <h1 class="text-4xl font-bold my-6">{{ msg }}</h1>
 
   <p>

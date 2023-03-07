@@ -1,16 +1,20 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import { themeChange } from 'theme-change'
+import NavBar from './components/NavBar.vue'
+import SideBar from './components/SideBar.vue'
+themeChange(false)
 </script>
 
 <template>
-  <img class="mx-auto" alt="Vue logo" src="@/assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite + TailwindCSS" />
+  <div class="drawer">
+    <input id="drawer-input" type="checkbox" class="drawer-toggle" />
+    <div class="bg-base-100 text-base-content min-h-screen drawer-content">
+      <NavBar />
+      <router-view></router-view>
+    </div>
+  </div>
+  <SideBar />
 </template>
 
 <style>
-#app {
-  @apply antialiased text-center text-default m-16;
-}
 </style>
