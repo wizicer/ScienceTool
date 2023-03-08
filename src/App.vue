@@ -16,8 +16,8 @@ themeChange(false)
         <template #fallback> Loading... </template>
       </Suspense>
     </div>
+    <SideBar />
   </div>
-  <SideBar />
 </template>
 
 <style></style>
