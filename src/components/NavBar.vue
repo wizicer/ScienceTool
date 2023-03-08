@@ -32,6 +32,9 @@
         <router-link class="btn btn-ghost btn-sm rounded-btn" to="/distiller">
           Distiller
         </router-link>
+        <router-link class="btn btn-ghost btn-sm rounded-btn" to="/ccf">
+          CCF
+        </router-link>
       </div>
     </div>
     <div class="flex-1 lg:flex-none"></div>
