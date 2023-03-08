@@ -6,7 +6,7 @@
         <router-link to="/">Home</router-link>
       </li>
       <li>
-        <router-link to="/cart">
+        <router-link to="/pubgen">
           Cart
           <div class="badge ml-2 badge-outline" v-text="count"></div>
         </router-link>

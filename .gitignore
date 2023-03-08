@@ -140,3 +140,5 @@ dist
 # Project
 dist-ssr
 *.local
+
+public/jieba_rs_wasm_bg.wasm

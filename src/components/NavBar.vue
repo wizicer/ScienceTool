@@ -25,9 +25,12 @@
         <router-link class="btn btn-ghost btn-sm rounded-btn" to="/">
           Home
         </router-link>
-        <router-link class="btn btn-ghost btn-sm rounded-btn" to="/cart">
+        <router-link class="btn btn-ghost btn-sm rounded-btn" to="/pubgen">
           Publication
           <div class="badge ml-2 badge-outline" v-text="count"></div>
+        </router-link>
+        <router-link class="btn btn-ghost btn-sm rounded-btn" to="/distiller">
+          Distiller
         </router-link>
       </div>
     </div>

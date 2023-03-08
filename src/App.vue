@@ -10,11 +10,14 @@ themeChange(false)
     <input id="drawer-input" type="checkbox" class="drawer-toggle" />
     <div class="bg-base-100 text-base-content min-h-screen drawer-content">
       <NavBar />
-      <router-view></router-view>
+      <Suspense>
+        <router-view></router-view>
+
+        <template #fallback> Loading... </template>
+      </Suspense>
     </div>
   </div>
   <SideBar />
 </template>
 
-<style>
-</style>
+<style></style>
