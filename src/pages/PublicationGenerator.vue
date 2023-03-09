@@ -1,26 +1,510 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { Ref, ref, watch } from 'vue'
+import { styleAbstract, punctuation } from '@/utils/abstractStyler'
+
+interface CriteriaItem {
+  name: string
+  keywords: string[]
+}
+
+interface PaperInfoItem {
+  title?: string
+  key?: string
+  type?: string
+  year?: string
+  doi?: string
+  publisher?: string
+  authors?: string[]
+}
+
+interface PaperItem {
+  Info: PaperInfoItem
+  Abstract?: string
+  Keywords?: string[]
+  Track?: string
+  PdfLink?: string
+  VideoLink?: string
+  VideoSize?: string
+  Citation?: string
+  Download?: string
+  Badges?: string[]
+}
+
+interface ExtendPaperItem extends PaperItem {
+  index: number
+  topic: string
+}
+
+interface TopicData {
+  name: string
+  papers: ExtendPaperItem[]
+  others: ExtendPaperItem[]
+}
 
 // defineProps<{ msg: string }>()
+const passCheck = ref(false)
 
+const DefaultKeywords = `blockchain:blockchain
+privacy:privacy,private
+verifiable(zero):zero-knowledge,verifiable
+cloud-native:cloud-native,serverless
+accelerator:gpu,fpga,arm
+distribute:distribute,distributed
+relational:relational,sql
+graph:graph
+query:query,queries
+clustering:clustering
+ai:learning,learned,training,trained,ai
+others:`
+
+const keywords = ref(localStorage.getItem('ccf_pub_keywords') || '')
+const topics: Ref<TopicData[]> = ref([])
+const criterias: Ref<CriteriaItem[]> = ref([])
+const selectedTarget = ref(
+  localStorage.getItem('ccf_pub_selected') || 'sigmod2022'
+)
+const targets: {
+  [key: string]: { title: string; jsondata: string; keywords: string }
+} = {
+  confsigmod2018: {
+    title: 'SIGMOD 2018',
+    jsondata: '/data/confsigmod2018.json',
+    keywords: DefaultKeywords,
+  },
+  confsigmod2019: {
+    title: 'SIGMOD 2019',
+    jsondata: '/data/confsigmod2019.json',
+    keywords: DefaultKeywords,
+  },
+  confsigmod2020: {
+    title: 'SIGMOD 2020',
+    jsondata: '/data/confsigmod2020.json',
+    keywords: DefaultKeywords,
+  },
+  sigmod2021: {
+    title: 'SIGMOD 2021',
+    jsondata: '/data/confsigmod2021.json',
+    keywords: DefaultKeywords,
+  },
+  sigmod2022: {
+    title: 'SIGMOD 2022',
+    jsondata: '/data/confsigmod2022.json',
+    keywords: DefaultKeywords,
+  },
+  confdasfaa2022: {
+    title: 'DASFAA 2022',
+    jsondata: '/data/confdasfaa2022.json',
+    keywords: DefaultKeywords,
+  },
+  confdasfaa2021: {
+    title: 'DASFAA 2021',
+    jsondata: '/data/confdasfaa2021.json',
+    keywords: DefaultKeywords,
+  },
+  conficde2018: {
+    title: 'ICDE 2018',
+    jsondata: '/data/conficde2018.json',
+    keywords: DefaultKeywords,
+  },
+  conficde2019: {
+    title: 'ICDE 2019',
+    jsondata: '/data/conficde2019.json',
+    keywords: DefaultKeywords,
+  },
+  conficde2020: {
+    title: 'ICDE 2020',
+    jsondata: '/data/conficde2020.json',
+    keywords: DefaultKeywords,
+  },
+  conficde2021: {
+    title: 'ICDE 2021',
+    jsondata: '/data/conficde2021.json',
+    keywords: DefaultKeywords,
+  },
+  conficde2022: {
+    title: 'ICDE 2022',
+    jsondata: '/data/conficde2022.json',
+    keywords: DefaultKeywords,
+  },
+  journalspvldb13: {
+    title: 'PVLDB V13',
+    jsondata: '/data/journalspvldb13.json',
+    keywords: DefaultKeywords,
+  },
+  journalspvldb14: {
+    title: 'PVLDB V14',
+    jsondata: '/data/journalspvldb14.json',
+    keywords: DefaultKeywords,
+  },
+  journalspvldb15: {
+    title: 'PVLDB V15',
+    jsondata: '/data/journalspvldb15.json',
+    keywords: DefaultKeywords,
+  },
+  confcikm2020: {
+    title: 'CIKM 2020',
+    jsondata: '/data/confcikm2020.json',
+    keywords: DefaultKeywords,
+  },
+  confcikm2021: {
+    title: 'CIKM 2021',
+    jsondata: '/data/confcikm2021.json',
+    keywords: DefaultKeywords,
+  },
+  confcikm2022: {
+    title: 'CIKM 2022',
+    jsondata: '/data/confcikm2022.json',
+    keywords: DefaultKeywords,
+  },
+}
+const types = {
+  Meeting: '👥️️',
+  Journal: '️📑',
+}
+function checkSyntax(): void {
+  localStorage.setItem('ccf_pub_keywords', keywords.value)
+  const kw = keywords.value
+  const lines = kw.split('\n')
+  let cs = []
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    const pos = line.indexOf(':')
+    if (pos == -1) {
+      passCheck.value = false
+      return
+    }
+    const name = line.slice(0, pos)
+    const keywords = line
+      .slice(pos + 1, line.length)
+      .split(',')
+      .map((_) => _.trim())
+      .filter((_) => _)
+    if (keywords.length > 0)
+      cs.push({
+        name,
+        keywords: keywords,
+      })
+  }
+
+  criterias.value = cs
+  passCheck.value = true
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+watch(selectedTarget, (newValue: string, _oldValue: string) => {
+  topics.value = []
+  localStorage.setItem('ccf_pub_selected', newValue)
+})
+function reset() {
+  keywords.value = targets[selectedTarget.value].keywords
+}
+function genLink(id: string): string {
+  // const tb = location.toString() // location.hash
+  // const bs = tb
+  // const q = tb.indexOf('#')
+  // return bs.substring(0, q > -1 ? q : bs.length) + '#' + id
+  return '#' + id
+}
+async function process() {
+  const presp = await fetch(targets[selectedTarget.value].jsondata)
+  let papers: PaperItem[] = await presp.json()
+  // papers = papers.slice(0, 10)
+  const allpapers = papers
+  if (!papers || papers.length == 0) return
+
+  let count = 1
+  topics.value = criterias.value.map((c) => generatePage(c))
+
+  function filterPaper(p: PaperItem, criteria: CriteriaItem) {
+    const all = `${p.Info.title} ${p.Abstract} ${(p.Keywords ?? []).join(
+      ' '
+    )}`.toLowerCase()
+    const cs = all.split(punctuation).join(' ')
+    return criteria.keywords.some((k) => cs.indexOf(k) > -1)
+  }
+
+  function generatePage(criteria: CriteriaItem): TopicData {
+    const curps = !criteria.keywords
+      ? papers
+      : papers.filter((p) => filterPaper(p, criteria))
+    const allps = !criteria.keywords
+      ? []
+      : allpapers.filter((p) => filterPaper(p, criteria))
+
+    papers = papers.filter((p) => curps.indexOf(p) == -1)
+
+    const otherPapers = allps.filter((p) => curps.indexOf(p) == -1)
+    otherPapers.sort((a, b) => a.index - b.index)
+    curps.forEach((p) => {
+      p.topic = criteria.name
+      p.index = count++
+    })
+
+    return {
+      name: criteria.name,
+      papers: curps,
+      others: otherPapers,
+    }
+  }
+
+  // this.topics = topics;
+  document.title = targets[selectedTarget.value].title
+}
+function standardize(id?: string): string {
+  if (!id) return ''
+  return id.replace(/[^0-9a-zA-Z]+/g, '-')
+}
+checkSyntax()
 </script>
 
 <template>
+  <div class="container mx-auto control-panel">
+    <h1 class="text-4xl font-bold my-6">Publication Generator</h1>
 
-  <h1 class="text-4xl font-bold my-6">Publication Generator</h1>
+    <textarea
+      v-model="keywords"
+      placeholder="Topics, separate by comma(,)"
+      spellcheck="false"
+      class="textarea textarea-bordered w-full block"
+      rows="8"
+      @blur="checkSyntax()"
+    ></textarea>
+    <button
+      class="btn btn-primary mt-3"
+      :disabled="!passCheck"
+      @click="process()"
+    >
+      Process
+    </button>
+    <button class="btn" @click="reset()">Reset</button>
+    <select v-model="selectedTarget" class="select select-bordered">
+      <option v-for="(item, name) in targets" :key="name" :value="name">
+        {{ targets[name].title }}
+      </option>
+    </select>
+    <span v-if="passCheck">✅ Check Pass</span>
+    <span v-else>❌ Check Failed</span>
+  </div>
 
+  <div v-if="topics && topics.length > 0" class="output-text container mx-auto">
+    <article class="prose">
+      <h1 class="text-4xl font-bold my-6">
+        {{ targets[selectedTarget].title }}
+      </h1>
+      <p>
+        Total Papers: {{ topics.reduce((pv, cv) => pv + cv.papers.length, 0) }}
+      </p>
+      <h1 id="toc">ToC</h1>
+      <ul
+        class="topic-toc space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400"
+      >
+        <li v-for="(topic, i) in topics" :key="i">
+          <a :href="genLink(standardize(topic.name))">
+            {{ topic.name }}
+          </a>
+          <span> [{{ topic.papers.length }}+{{ topic.others.length }}] </span>
+        </li>
+      </ul>
+    </article>
+
+    <template v-for="(topic, i) in topics" :key="'topic' + i">
+      <article class="prose max-w-full">
+        <h1 :id="standardize(topic.name)">{{ topic.name }}</h1>
+        <ul
+          class="toc space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400"
+        >
+          <li
+            v-for="(paper, j) in [topic.papers, topic.others].flatMap((_) => _)"
+            :key="j"
+          >
+            <span v-if="topic.name != paper.topic" class="index-number">
+              <a :href="genLink(standardize(paper.topic))">{{ paper.topic }}</a>
+            </span>
+            <a :href="genLink(standardize(paper.Info.key))">
+              <span class="index-number">{{ paper.index }}</span>
+              <span v-if="paper.Track" class="track badge badge-outline">{{
+                paper.Track
+              }}</span>
+              {{ paper.Info.title }}
+              <span v-for="(badge, k) in paper.Badges" :key="k" class="badges">
+                <span
+                  v-if="badge.toLowerCase() == 'best paper'"
+                  class=""
+                  :title="badge"
+                  >🌟</span
+                >
+                <span
+                  v-else-if="badge.toLowerCase() == 'best industry paper'"
+                  class=""
+                  :title="badge"
+                  >🌟</span
+                >
+                <span
+                  v-else-if="badge.toLowerCase() == 'honorable mention'"
+                  class=""
+                  :title="badge"
+                  >🌠</span
+                >
+                <span v-else class="" :title="badge">🗒️</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <a :href="genLink('toc')" class="control-panel">⟰</a>
+      </article>
+
+      <article
+        v-for="(paper, j) in topic.papers"
+        :key="j"
+        class="prose max-w-full"
+      >
+        <h2 :id="standardize(paper.Info.key)">
+          <span class="index-number">{{ paper.index }}</span
+          >{{ paper.Info.title }}
+        </h2>
+        <blockquote>
+          <span
+            v-for="(author, k) in paper.Info.authors"
+            :key="k"
+            class="author badge badge-outline badge-primary mx-1"
+            >{{ author }}</span
+          >
+          <br />
+          <span v-if="paper.Track" class="track badge mx-1">{{
+            paper.Track
+          }}</span>
+          <span class="publisher badge badge-outline badge-primary mx-1">{{
+            paper.Info.publisher
+          }}</span>
+          <span class="year badge badge-outline badge-primary mx-1">{{
+            paper.Info.year
+          }}</span>
+          <span class="type badge badge-outline badge-secondary mx-1">{{
+            paper.Info.type
+          }}</span>
+          <br />
+          <span v-if="paper.PdfLink"
+            ><a
+              target="_blank"
+              :href="paper.PdfLink"
+              class="btn btn-xs btn-primary mx-1"
+              >PDF</a
+            ></span
+          >
+          <span v-if="paper.VideoLink"
+            ><a
+              target="_blank"
+              :href="paper.VideoLink"
+              class="btn btn-xs btn-outline btn-info mx-1"
+              >VIDEO[{{ paper.VideoSize }}]</a
+            ></span
+          >
+          <span v-if="paper.Info.doi"
+            ><a
+              target="_blank"
+              :href="paper.Info.doi"
+              class="btn btn-xs btn-outline btn-secondary mx-1"
+              >DOI</a
+            ></span
+          >
+          <span class="badge badge-outline badge-info badge-sm mx-1"
+            >Cite: {{ paper.Citation }}</span
+          >
+          <span class="badge badge-outline badge-info badge-sm mx-1"
+            >Down: {{ paper.Download }}</span
+          >
+          <br />
+          <span>Keywords:</span>
+          <ul class="keywords">
+            <li v-for="(keyword, k) in paper.Keywords" :key="k" class="keyword">
+              {{ keyword }}
+            </li>
+          </ul>
+        </blockquote>
+        <b>Abstract:</b>
+        <div class="abstract">
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <p v-html="styleAbstract(paper.Abstract ?? '')"></p>
+        </div>
+        <a :href="genLink('toc')" class="control-panel">⟰</a>
+      </article>
+    </template>
+  </div>
 </template>
 
+<style lang="scss" scoped>
+:deep() {
+  @import '@/styles/abstract.scss';
+}
+</style>
+
 <style scoped>
-p {
-  @apply my-4;
+ul.toc > li > a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: inherit;
 }
 
-a {
-  @apply text-link;
+.author {
+  padding-right: 0.5em;
 }
 
-code {
-  @apply bg-code py-0.5 px-1 text-code text-sm;
+.track {
+  text-transform: uppercase;
+  quotes: '[' ']';
+}
+
+.keywords {
+  display: inline;
+  list-style: none;
+  padding: 0px;
+}
+
+.keywords li {
+  display: inline;
+}
+
+.keywords li::after {
+  content: ', ';
+}
+
+.keywords li:last-child::after {
+  content: '';
+}
+
+.author:after:not(:last-child) {
+  content: ',';
+}
+
+.abstract {
+  font-size: 1.05em;
+}
+
+.index-number {
+  padding: 0px 4px;
+  text-align: center;
+  border-radius: 5px;
+  margin-right: 0.4rem;
+  box-shadow: 0px 0px 0px 1px black inset;
+}
+
+@media print {
+  article {
+    break-inside: avoid;
+    page-break-before: always;
+    display: block;
+    min-height: 90vh;
+  }
+
+  .control-panel {
+    display: none;
+  }
+}
+</style>
+<style>
+@media print {
+  .navbar {
+    display: none !important;
+  }
 }
 </style>

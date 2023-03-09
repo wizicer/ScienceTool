@@ -1,6 +1,6 @@
 <template>
   <div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content">
-    <div class="flex-none lg:hidden">
+    <!-- <div class="flex-none lg:hidden">
       <label for="drawer-input" class="btn btn-square btn-ghost">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -16,12 +16,13 @@
           ></path>
         </svg>
       </label>
-    </div>
+    </div> -->
     <div class="flex-none px-2 mx-2">
       <span class="text-lg font-bold">Science Tools</span>
     </div>
     <div class="flex-1 px-2 mx-2">
-      <div class="items-stretch hidden lg:flex">
+      <!-- <div class="items-stretch hidden lg:flex"> -->
+      <div class="items-stretch">
         <router-link class="btn btn-ghost btn-sm rounded-btn" to="/">
           Home
         </router-link>

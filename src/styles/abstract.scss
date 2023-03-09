@@ -1,0 +1,52 @@
+$colors: #36133d, #10293f, #2c6829, #8f7d19, #ab4822;
+$steps: 0%, 10%, 20%, 30%, 40%;
+
+.abstract > p {
+  @each $color in $colors {
+    $ci: index($colors, $color);
+    @each $step in $steps {
+      $si: index($steps, $step);
+      & > .color-#{$ci}-#{$si} {
+        color: lighten($color, $step);
+      }
+    }
+  }
+
+  .other {
+    color: #aaa;
+  }
+  .nonlexical {
+    color: #ddd;
+  }
+  .transition {
+    color: #42b983;
+    font-weight: bold;
+  }
+  .end::before {
+    content: "◾";
+    color: transparent;
+    text-shadow: 0 0 0 #aaa;
+  }
+
+  .highlight {
+    background-image: linear-gradient(120deg, wheat 0%, yellow 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.5em;
+    background-position: 0 88%;
+  }
+
+  //   border-left: 4px solid var(--theme-color, #42b983);
+  //   margin: 2em 0;
+  //   padding-left: 20px;
+}
+
+.abstract.no-color > p span {
+  color: inherit !important;
+}
+
+@media print {
+  article > article {
+    break-inside: avoid;
+    page-break-before: always;
+  }
+}
