@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content">
+  <div class="navbar mb-2 shadow-lg bg-base-300">
     <!-- <div class="flex-none lg:hidden">
       <label for="drawer-input" class="btn btn-square btn-ghost">
         <svg
@@ -18,31 +18,36 @@
       </label>
     </div> -->
     <div class="flex-none px-2 mx-2">
-      <span class="text-lg font-bold">Science Tools</span>
+      <span class="text-lg font-bold">
+        <router-link to="/">科学工具</router-link>
+      </span>
     </div>
     <div class="flex-1 px-2 mx-2">
-      <!-- <div class="items-stretch hidden lg:flex"> -->
-      <div class="items-stretch">
-        <router-link class="btn btn-ghost btn-sm rounded-btn" to="/">
-          Home
-        </router-link>
-        <router-link class="btn btn-ghost btn-sm rounded-btn" to="/pubgen">
-          Publication
-          <div class="badge ml-2 badge-outline" v-text="count"></div>
-        </router-link>
-        <router-link class="btn btn-ghost btn-sm rounded-btn" to="/distiller">
-          Distiller
-        </router-link>
-        <router-link class="btn btn-ghost btn-sm rounded-btn" to="/ccf">
-          CCF
-        </router-link>
-      </div>
+      <ul class="menu menu-horizontal px-1">
+        <li><router-link to="/pubgen">出版物</router-link></li>
+        <li><router-link to="/ccf">CCF排名</router-link></li>
+        <li><router-link to="/combiner">文字合并</router-link></li>
+        <li tabindex="0">
+          <a>
+            实验
+            <svg
+              class="fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              />
+            </svg>
+          </a>
+          <ul class="p-2 bg-base-100">
+            <li><router-link to="/distiller">文字蒸馏</router-link></li>
+          </ul>
+        </li>
+      </ul>
     </div>
     <div class="flex-1 lg:flex-none"></div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-const count = 1
-</script>
