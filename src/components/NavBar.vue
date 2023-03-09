@@ -19,7 +19,7 @@
     </div> -->
     <div class="flex-none px-2 mx-2">
       <span class="text-lg font-bold">
-        <router-link to="/">科学工具</router-link>
+        <router-link to="/">科研工具</router-link>
       </span>
     </div>
     <div class="flex-1 px-2 mx-2">

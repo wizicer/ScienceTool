@@ -1,49 +1,14 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-defineProps<{ msg: string }>()
-
-const count = ref(0)
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  HOMEPAGE
-  <h1 class="text-4xl font-bold my-6">{{ msg }}</h1>
-
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
-    +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-  </p>
-
-  <p>See <code>README.md</code> for more information.</p>
-
-
-
-  <button
-    class="bg-white hover:bg-gray-50 py-2 px-4 border border-gray-200 rounded shadow-sm"
-    type="button"
-    @click="count++"
-  >
-    count is: {{ count }}
-  </button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+  <div class="container mx-auto">
+    <article class="prose">
+      <h1>科研工具</h1>
+      <p>
+        这里是我收集的一些科研用的工具，都是纯网页，可以离线使用的，欢迎使用并提出反馈。
+      </p>
+    </article>
+  </div>
 </template>
 
-<style scoped>
-p {
-  @apply my-4;
-}
-
-a {
-  @apply text-link;
-}
-
-code {
-  @apply bg-code py-0.5 px-1 text-code text-sm;
-}
-</style>
+<style scoped></style>
