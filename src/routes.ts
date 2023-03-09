@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import CcfTool from './pages/CcfTool.vue';
 import Home from './pages/HomePage.vue'
+import PubDeadlines from './pages/PubDeadlines.vue';
 import PublicationGenerator from './pages/PublicationGenerator.vue';
 import TextCombiner from './pages/TextCombiner.vue';
 import TextDistiller from './pages/TextDistiller.vue';
@@ -11,6 +12,7 @@ const routes = [
     { path: '/distiller', component: TextDistiller },
     { path: '/ccf', component: CcfTool },
     { path: '/combiner', component: TextCombiner },
+    { path: '/deadlines', component: PubDeadlines },
 ];
 
 const router = createRouter({
