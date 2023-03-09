@@ -37,6 +37,11 @@ interface ExtendPaperItem extends PaperItem {
   topic: string
 }
 
+interface TempExtendPaperItem extends PaperItem {
+  index?: number
+  topic?: string
+}
+
 interface TopicData {
   name: string
   papers: ExtendPaperItem[]
@@ -52,7 +57,7 @@ const criterias: Ref<CriteriaItem[]> = ref([])
 const selectedTarget = ref(
   localStorage.getItem('ccf_pub_selected') || 'sigmod2022'
 )
-const targets = pubTargets;
+const targets = pubTargets
 function checkSyntax(): void {
   localStorage.setItem('ccf_pub_keywords', keywords.value)
   const kw = keywords.value
@@ -103,7 +108,9 @@ async function process() {
     return
   }
 
-  let papers: PaperItem[] = (await decodeAsync(presp.body)) as PaperItem[]
+  let papers: TempExtendPaperItem[] = (await decodeAsync(
+    presp.body
+  )) as PaperItem[]
   // let papers: PaperItem[] = await presp.json()
   // papers = papers.slice(0, 10)
   const allpapers = papers
@@ -120,6 +127,14 @@ async function process() {
     return criteria.keywords.some((k) => cs.indexOf(k) > -1)
   }
 
+  function convertTempToExtend(
+    items: TempExtendPaperItem[]
+  ): ExtendPaperItem[] {
+    return items.map((_) =>
+      Object.assign({}, _, { topic: _.topic ?? '', index: _.index ?? -1 })
+    )
+  }
+
   function generatePage(criteria: CriteriaItem): TopicData {
     const curps = !criteria.keywords
       ? papers
@@ -131,7 +146,7 @@ async function process() {
     papers = papers.filter((p) => curps.indexOf(p) == -1)
 
     const otherPapers = allps.filter((p) => curps.indexOf(p) == -1)
-    otherPapers.sort((a, b) => a.index - b.index)
+    otherPapers.sort((a, b) => (a.index ?? 0) - (b.index ?? 0))
     curps.forEach((p) => {
       p.topic = criteria.name
       p.index = count++
@@ -139,8 +154,8 @@ async function process() {
 
     return {
       name: criteria.name,
-      papers: curps,
-      others: otherPapers,
+      papers: convertTempToExtend(curps),
+      others: convertTempToExtend(otherPapers),
     }
   }
 
