@@ -188,9 +188,9 @@ checkSyntax()
       :disabled="!passCheck"
       @click="process()"
     >
-      Process
+      生成摘要集
     </button>
-    <button class="btn mx-1" @click="reset()">Reset</button>
+    <button class="btn mx-1" @click="reset()">重置分类</button>
     <select v-model="selectedTarget" class="select select-bordered mx-1">
       <option v-for="(item, name) in targets" :key="name" :value="name">
         {{ targets[name].title }}
@@ -199,11 +199,11 @@ checkSyntax()
     <div class="form-control inline-block">
       <label class="label cursor-pointer">
         <input v-model="convertAbstract" type="checkbox" class="checkbox" />
-        <span class="label-text mx-1">Highlight Abstract</span>
+        <span class="label-text mx-1">美化摘要显示</span>
       </label>
     </div>
-    <span v-if="passCheck">✅ Check Pass</span>
-    <span v-else>❌ Check Failed</span>
+    <span v-if="passCheck">✅ 分类规则检查通过</span>
+    <span v-else>❌ 分类规则发现错误</span>
   </div>
 
   <div v-if="topics && topics.length > 0" class="output-text container mx-auto">
