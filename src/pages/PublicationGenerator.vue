@@ -43,6 +43,7 @@ interface TopicData {
 
 // defineProps<{ msg: string }>()
 const passCheck = ref(false)
+const convertAbstract = ref(true)
 
 const DefaultKeywords = `blockchain:blockchain
 privacy:privacy,private
@@ -282,6 +283,12 @@ checkSyntax()
         {{ targets[name].title }}
       </option>
     </select>
+    <div class="form-control inline-block">
+      <label class="label cursor-pointer">
+        <input v-model="convertAbstract" type="checkbox" class="checkbox" />
+        <span class="label-text mx-1">Highlight Abstract</span>
+      </label>
+    </div>
     <span v-if="passCheck">✅ Check Pass</span>
     <span v-else>❌ Check Failed</span>
   </div>
@@ -413,18 +420,25 @@ checkSyntax()
           <span class="badge badge-outline badge-info badge-sm mx-1"
             >Down: {{ paper.Download }}</span
           >
-          <br />
-          <span>Keywords:</span>
-          <ul class="keywords">
-            <li v-for="(keyword, k) in paper.Keywords" :key="k" class="keyword">
-              {{ keyword }}
-            </li>
-          </ul>
+          <template v-if="paper.Keywords && paper.Keywords.length > 0">
+            <br />
+            <span>Keywords:</span>
+            <ul class="keywords">
+              <li
+                v-for="(keyword, k) in paper.Keywords"
+                :key="k"
+                class="keyword"
+              >
+                {{ keyword }}
+              </li>
+            </ul>
+          </template>
         </blockquote>
         <b>Abstract:</b>
         <div class="abstract">
+          <p v-if="!convertAbstract">{{ paper.Abstract }}</p>
           <!-- eslint-disable-next-line vue/no-v-html -->
-          <p v-html="styleAbstract(paper.Abstract ?? '')"></p>
+          <p v-else v-html="styleAbstract(paper.Abstract ?? '')"></p>
         </div>
         <a :href="genLink('toc')" class="control-panel">⟰</a>
       </article>
