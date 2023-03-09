@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Ref, ref, watch } from 'vue'
 import { styleAbstract, punctuation } from '@/utils/abstractStyler'
+import { decodeAsync } from '@msgpack/msgpack'
+import { pubTargets } from '@/data/pubdata'
 
 interface CriteriaItem {
   name: string
@@ -41,22 +43,8 @@ interface TopicData {
   others: ExtendPaperItem[]
 }
 
-// defineProps<{ msg: string }>()
 const passCheck = ref(false)
 const convertAbstract = ref(true)
-
-const DefaultKeywords = `blockchain:blockchain
-privacy:privacy,private
-verifiable(zero):zero-knowledge,verifiable
-cloud-native:cloud-native,serverless
-accelerator:gpu,fpga,arm
-distribute:distribute,distributed
-relational:relational,sql
-graph:graph
-query:query,queries
-clustering:clustering
-ai:learning,learned,training,trained,ai
-others:`
 
 const keywords = ref(localStorage.getItem('ccf_pub_keywords') || '')
 const topics: Ref<TopicData[]> = ref([])
@@ -64,104 +52,7 @@ const criterias: Ref<CriteriaItem[]> = ref([])
 const selectedTarget = ref(
   localStorage.getItem('ccf_pub_selected') || 'sigmod2022'
 )
-const targets: {
-  [key: string]: { title: string; jsondata: string; keywords: string }
-} = {
-  confsigmod2018: {
-    title: 'SIGMOD 2018',
-    jsondata: '/data/confsigmod2018.json',
-    keywords: DefaultKeywords,
-  },
-  confsigmod2019: {
-    title: 'SIGMOD 2019',
-    jsondata: '/data/confsigmod2019.json',
-    keywords: DefaultKeywords,
-  },
-  confsigmod2020: {
-    title: 'SIGMOD 2020',
-    jsondata: '/data/confsigmod2020.json',
-    keywords: DefaultKeywords,
-  },
-  sigmod2021: {
-    title: 'SIGMOD 2021',
-    jsondata: '/data/confsigmod2021.json',
-    keywords: DefaultKeywords,
-  },
-  sigmod2022: {
-    title: 'SIGMOD 2022',
-    jsondata: '/data/confsigmod2022.json',
-    keywords: DefaultKeywords,
-  },
-  confdasfaa2022: {
-    title: 'DASFAA 2022',
-    jsondata: '/data/confdasfaa2022.json',
-    keywords: DefaultKeywords,
-  },
-  confdasfaa2021: {
-    title: 'DASFAA 2021',
-    jsondata: '/data/confdasfaa2021.json',
-    keywords: DefaultKeywords,
-  },
-  conficde2018: {
-    title: 'ICDE 2018',
-    jsondata: '/data/conficde2018.json',
-    keywords: DefaultKeywords,
-  },
-  conficde2019: {
-    title: 'ICDE 2019',
-    jsondata: '/data/conficde2019.json',
-    keywords: DefaultKeywords,
-  },
-  conficde2020: {
-    title: 'ICDE 2020',
-    jsondata: '/data/conficde2020.json',
-    keywords: DefaultKeywords,
-  },
-  conficde2021: {
-    title: 'ICDE 2021',
-    jsondata: '/data/conficde2021.json',
-    keywords: DefaultKeywords,
-  },
-  conficde2022: {
-    title: 'ICDE 2022',
-    jsondata: '/data/conficde2022.json',
-    keywords: DefaultKeywords,
-  },
-  journalspvldb13: {
-    title: 'PVLDB V13',
-    jsondata: '/data/journalspvldb13.json',
-    keywords: DefaultKeywords,
-  },
-  journalspvldb14: {
-    title: 'PVLDB V14',
-    jsondata: '/data/journalspvldb14.json',
-    keywords: DefaultKeywords,
-  },
-  journalspvldb15: {
-    title: 'PVLDB V15',
-    jsondata: '/data/journalspvldb15.json',
-    keywords: DefaultKeywords,
-  },
-  confcikm2020: {
-    title: 'CIKM 2020',
-    jsondata: '/data/confcikm2020.json',
-    keywords: DefaultKeywords,
-  },
-  confcikm2021: {
-    title: 'CIKM 2021',
-    jsondata: '/data/confcikm2021.json',
-    keywords: DefaultKeywords,
-  },
-  confcikm2022: {
-    title: 'CIKM 2022',
-    jsondata: '/data/confcikm2022.json',
-    keywords: DefaultKeywords,
-  },
-}
-const types = {
-  Meeting: '👥️️',
-  Journal: '️📑',
-}
+const targets = pubTargets;
 function checkSyntax(): void {
   localStorage.setItem('ccf_pub_keywords', keywords.value)
   const kw = keywords.value
@@ -207,8 +98,13 @@ function genLink(id: string): string {
   return '#' + id
 }
 async function process() {
-  const presp = await fetch(targets[selectedTarget.value].jsondata)
-  let papers: PaperItem[] = await presp.json()
+  const presp = await fetch(targets[selectedTarget.value].path)
+  if (!presp.body) {
+    return
+  }
+
+  let papers: PaperItem[] = (await decodeAsync(presp.body)) as PaperItem[]
+  // let papers: PaperItem[] = await presp.json()
   // papers = papers.slice(0, 10)
   const allpapers = papers
   if (!papers || papers.length == 0) return
@@ -260,7 +156,7 @@ checkSyntax()
 
 <template>
   <div class="container mx-auto control-panel">
-    <h1 class="text-4xl font-bold my-6">Publication Generator</h1>
+    <h1 class="text-4xl font-bold my-6">出版物生成器</h1>
 
     <textarea
       v-model="keywords"
@@ -271,14 +167,14 @@ checkSyntax()
       @blur="checkSyntax()"
     ></textarea>
     <button
-      class="btn btn-primary mt-3"
+      class="btn btn-primary mt-3 mx-1"
       :disabled="!passCheck"
       @click="process()"
     >
       Process
     </button>
-    <button class="btn" @click="reset()">Reset</button>
-    <select v-model="selectedTarget" class="select select-bordered">
+    <button class="btn mx-1" @click="reset()">Reset</button>
+    <select v-model="selectedTarget" class="select select-bordered mx-1">
       <option v-for="(item, name) in targets" :key="name" :value="name">
         {{ targets[name].title }}
       </option>

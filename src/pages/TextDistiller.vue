@@ -4,9 +4,6 @@ import { Ref, ref } from 'vue'
 import { cut } from 'jieba-wasm/pkg/web/jieba_rs_wasm'
 import init from 'jieba-wasm/pkg/web/jieba_rs_wasm'
 
-// const d = wa;
-// console.log(d);
-
 await init(new URL('/jieba_rs_wasm_bg.wasm', window.location.toString()))
 // defineProps<{ msg: string }>()
 const text = ref('')
@@ -16,7 +13,6 @@ const wordsList: Ref<{ word: string; count: number }[]> = ref([
 ])
 function process() {
   const array: string[] = cut(text.value, true)
-  console.log(array)
   const dict: { [key: string]: number } = {}
   // const dict = wordsList.value
   for (let i = 0; i < array.length; i++) {

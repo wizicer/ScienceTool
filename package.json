@@ -12,6 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@msgpack/msgpack": "^2.8.0",
     "@tailwindcss/typography": "^0.5.9",
     "daisyui": "^2.51.3",
     "jieba-wasm": "^0.0.2",
