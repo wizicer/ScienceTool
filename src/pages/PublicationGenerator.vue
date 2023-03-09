@@ -2,7 +2,7 @@
 import { Ref, ref, watch } from 'vue'
 import { styleAbstract, punctuation } from '@/utils/abstractStyler'
 import { decodeAsync } from '@msgpack/msgpack'
-import { pubTargets } from '@/data/pubdata'
+import { pubTargets, DefaultKeywords } from '@/data/pubdata'
 
 interface CriteriaItem {
   name: string
@@ -51,7 +51,9 @@ interface TopicData {
 const passCheck = ref(false)
 const convertAbstract = ref(true)
 
-const keywords = ref(localStorage.getItem('ccf_pub_keywords') || '')
+const keywords = ref(
+  localStorage.getItem('ccf_pub_keywords') || DefaultKeywords
+)
 const topics: Ref<TopicData[]> = ref([])
 const criterias: Ref<CriteriaItem[]> = ref([])
 const selectedTarget = ref(

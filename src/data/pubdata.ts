@@ -1,5 +1,5 @@
 
-const DefaultKeywords = `blockchain:blockchain
+export const DefaultKeywords = `blockchain:blockchain
 privacy:privacy,private
 verifiable(zero):zero-knowledge,verifiable
 cloud-native:cloud-native,serverless
