@@ -40,6 +40,11 @@ export const pubTargets: {
     path: '/data/confsigmod2022.bin',
     keywords: DefaultKeywords,
   },
+  confdasfaa2023: {
+    title: 'DASFAA 2023',
+    path: '/data/confdasfaa2023.bin',
+    keywords: DefaultKeywords,
+  },
   confdasfaa2022: {
     title: 'DASFAA 2022',
     path: '/data/confdasfaa2022.bin',
