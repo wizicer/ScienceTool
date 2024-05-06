@@ -5,6 +5,7 @@ import PubDeadlines from './pages/PubDeadlines.vue';
 import PublicationGenerator from './pages/PublicationGenerator.vue';
 import TextCombiner from './pages/TextCombiner.vue';
 import TextDistiller from './pages/TextDistiller.vue';
+import DbPubInfo from './pages/DbPubInfo.vue';
 
 const routes = [
     { path: '/', component: Home },
@@ -13,6 +14,7 @@ const routes = [
     { path: '/ccf', component: CcfTool },
     { path: '/combiner', component: TextCombiner },
     { path: '/deadlines', component: PubDeadlines },
+    { path: '/pub/db', component: DbPubInfo },
 ];
 
 const router = createRouter({

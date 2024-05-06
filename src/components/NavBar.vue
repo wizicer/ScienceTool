@@ -45,6 +45,7 @@
           <ul class="p-2 bg-base-100">
             <li><router-link to="/distiller">文字蒸馏</router-link></li>
             <li><router-link to="/deadlines">截止日期</router-link></li>
+            <li><router-link to="/pub/db">DB领域会议/期刊信息</router-link></li>
           </ul>
         </li>
       </ul>
