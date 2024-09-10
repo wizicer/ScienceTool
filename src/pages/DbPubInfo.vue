@@ -36,6 +36,12 @@ import { Ref, ref } from 'vue'
           <td><a href="https://www.icdeworldconference2025.com/" target="_blank">2025 官网</a></td>
           <td>2023年有两轮，分别在7月和11月</td>
         </tr>
+        <tr>
+          <td><abbr title="International World Wide Web Conferences">WWW</abbr></td>
+          <td>2025.4.28 Sydney, Australia</td>
+          <td><a href="https://www2025.org/" target="_blank">2025 官网</a></td>
+          <td>2023年有一轮，在10月</td>
+        </tr>
       </tbody>
     </table>
 
