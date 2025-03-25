@@ -18,21 +18,19 @@ const catedic = Object.assign(
     [x.id]: x,
   }))
 )
-const ccf2019Csv = await fetch('/data/ccf2019.csv')
-const ccf2019 = csvToArray(await ccf2019Csv.text())
+const ccfCsv = await fetch('/data/ccf2022.csv')
+const ccfpubs = csvToArray(await ccfCsv.text())
   .map((_) => ({
-    id: _[0],
-    pubshort: _[1],
-    publication: _[2],
-    publisher: _[3],
-    url: _[4],
-    level: _[5],
-    type: _[6],
-    category: _[7],
+    pubshort: _[0],
+    publication: _[1],
+    publisher: _[2],
+    url: _[3],
+    level: _[4],
+    type: _[5],
+    category: _[6],
   }))
   .slice(1)
 
-const ccfpubs = ccf2019
 const category = catedic
 
 const selectedCategory = ref('')
@@ -42,7 +40,7 @@ const levels: { [key: string]: string } = {
   C: '©️',
 }
 const types: { [key: string]: string } = {
-  Meeting: '👥️️',
+  Conference: '👥️️',
   Journal: '️📑',
 }
 // function process() {}
@@ -86,7 +84,7 @@ const filterpubs = computed(() => {
 
     <div class="mt-5">
       <ul class="space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
-        <li v-for="pub in filterpubs" :key="pub.id">
+        <li v-for="(pub, id) in filterpubs" :key="id">
           {{ levels[pub.level] }}
           <a
             target="_blank"
@@ -98,7 +96,7 @@ const filterpubs = computed(() => {
           <span :title="pub.type">
             {{ types[pub.type] }}
           </span>
-          <span :title="pub.id">{{ pub.pubshort }}</span
+          <span>{{ pub.pubshort }}</span
           >, <a target="_blank" :href="pub.url">{{ pub.publication }}</a
           >,
           {{ pub.publisher }}
