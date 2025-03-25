@@ -68,6 +68,12 @@ const filterpubs = computed(() => {
 <template>
   <div class="container mx-auto">
     <h1 class="text-4xl font-bold my-6">CCF</h1>
+    <p class="text-gray-500 mb-3">
+      根据<a
+        href="https://www.ccf.org.cn/Academic_Evaluation/By_category/2023-03-08/787209.shtml"
+        >《中国计算机学会推荐国际学术会议和期刊目录（2022）》</a
+      >整理
+    </p>
 
     <input
       v-model="filter"
@@ -83,7 +89,9 @@ const filterpubs = computed(() => {
     </select>
 
     <div class="mt-5">
-      <ul class="space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+      <ul
+        class="space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400"
+      >
         <li v-for="(pub, id) in filterpubs" :key="id">
           {{ levels[pub.level] }}
           <a
@@ -106,5 +114,4 @@ const filterpubs = computed(() => {
   </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
