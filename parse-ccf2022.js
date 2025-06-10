@@ -38,13 +38,13 @@ for (let i = 0; i < lines.length; i++) {
   const line = lines[i].trim();
 
   // Detect category
-  if (line.startsWith('# （')) {
-    const categoryMatch = line.match(/（(.+?)）/);
+  if (line.startsWith('# (') || line.startsWith('# （')) {
+    const categoryMatch = line.match(/[(（](.+?)[）)]/);
     if (categoryMatch) {
       currentCategory = categoryMatch[1];
 
       // Map category name to code
-      switch (currentCategory) {
+      switch (currentCategory.replaceAll('／', '/')) {
         case '计算机体系结构/并行与分布计算/存储系统':
           categoryCode = '1';
           break;

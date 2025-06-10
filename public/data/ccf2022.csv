@@ -282,68 +282,68 @@ REFSQ,"Requirements Engineering: Foundation for Software Quality","Springer",htt
 WICSA,"Working IEEE/IFIP Conference on Software Architecture","IEEE",http://dblp.uni-trier.de/db/conf/wicsa/,C,Conference,4
 Internetware,"Asia-Pacific Symposium on Internetware","ACM",https://dblp.org/db/conf/internetware/index.html,C,Conference,4
 RV,"International Conference on Runtime Verification","Springer",https://dblp.uni-trier.de/db/conf/rv/index.html,C,Conference,4
-TODS,"ACM Transactions on Database Systems","ACM",http://dblp.uni-trier.de/db/journals/tods/,A,Journal,4
-TOIS,"ACM Transactions on Information Systems","ACM",http://dblp.uni-trier.de/db/journals/tois/,A,Journal,4
-TKDE,"IEEE Transactions on Knowledge and Data Engineering","IEEE",http://dblp.uni-trier.de/db/journals/tkde/,A,Journal,4
-VLDBJ,"The VLDB Journal","Springer",http://dblp.uni-trier.de/db/journals/vldb/,A,Journal,4
-TKDD,"ACM Transactions on Knowledge Discovery from Data","ACM",http://dblp.uni-trier.de/db/journals/tkdd/,B,Journal,4
-TWEB,"ACM Transactions on the Web","ACM",http://dblp.uni-trier.de/db/journals/tweb/,B,Journal,4
-AEI,"Advanced Engineering Informatics","Elsevier",http://dblp.uni-trier.de/db/journals/aei/,B,Journal,4
-DKE,"Data & Knowledge Engineering","Elsevier",http://dblp.uni-trier.de/db/journals/dke/,B,Journal,4
-DMKD,"Data Mining and Knowledge Discovery","Springer",http://dblp.uni-trier.de/db/journals/datamine/,B,Journal,4
-EJIS,"European Journal of Information Systems","Springer",http://dblp.uni-trier.de/db/journals/ejis/,B,Journal,4
-,"GeoInformatica","Springer",http://dblp.uni-trier.de/db/journals/geoinformatica/,B,Journal,4
-IPM,"Information Processing and Management","Elsevier",http://dblp.uni-trier.de/db/journals/ipm/,B,Journal,4
-,"Information Sciences","Elsevier",http://dblp.uni-trier.de/db/journals/isci/,B,Journal,4
-IS,"Information Systems","Elsevier",http://dblp.uni-trier.de/db/journals/is/,B,Journal,4
-JASIST,"Journal of the Association for Information Science and Technology","Wiley",http://dblp.uni-trier.de/db/journals/jasis/,B,Journal,4
-JWS,"Journal of Web Semantics","Elsevier",http://dblp.uni-trier.de/db/journals/ws/,B,Journal,4
-KAIS,"Knowledge and Information Systems","Springer",http://dblp.uni-trier.de/db/journals/kais/,B,Journal,4
-DPD,"Distributed and Parallel Databases","Springer",http://dblp.uni-trier.de/db/journals/dpd/,C,Journal,4
-I&M,"Information & Management","Elsevier",http://dblp.uni-trier.de/db/journals/iam/,C,Journal,4
-IPL,"Information Processing Letters","Elsevier",http://dblp.uni-trier.de/db/journals/ipl/,C,Journal,4
-IR,"Information Retrieval Journal","Springer",http://dblp.uni-trier.de/db/journals/ir/,C,Journal,4
-IJCIS,"International Journal of Cooperative Information Systems","World Scientific",http://dblp.uni-trier.de/db/journals/ijcis/,C,Journal,4
-IJGIS,"International Journal of Geographical Information Science","Taylor & Francis",http://dblp.uni-trier.de/db/journals/gis/,C,Journal,4
-IJIS,"International Journal of Intelligent Systems","Wiley",http://dblp.uni-trier.de/db/journals/ijis/,C,Journal,4
-IJKM,"International Journal of Knowledge Management","IGI",http://dblp.uni-trier.de/db/journals/ijkm/,C,Journal,4
-IJSWIS,"International Journal on Semantic Web and Information Systems","IGI",http://dblp.uni-trier.de/db/journals/ijswis/,C,Journal,4
-JCIS,"Journal of Computer Information Systems","IACIS",http://dblp.uni-trier.de/db/journals/jcis/,C,Journal,4
-JDM,"Journal of Database Management","IGI-Global",http://dblp.uni-trier.de/db/journals/jdm/,C,Journal,4
-JGITM,"Journal of Global Information Technology Management","Ivy League Publishing",https://dblp.org/db/journals/jgim/index.html,C,Journal,4
-JIIS,"Journal of Intelligent Information Systems","Springer",http://dblp.uni-trier.de/db/journals/jiis/,C,Journal,4
-JSIS,"The Journal of Strategic Information Systems","Elsevier",http://dblp.uni-trier.de/db/journals/jsis/,C,Journal,4
-DSE,"Data Science and Engineering","CCF",https://dblp.org/db/journals/dase/index.html,C,Journal,4
-SIGMOD,"ACM SIGMOD Conference","ACM",http://dblp.uni-trier.de/db/conf/sigmod/,A,Conference,4
-SIGKDD,"ACM SIGKDD Conference on Knowledge Discovery and Data Mining","ACM",http://dblp.uni-trier.de/db/conf/kdd/,A,Conference,4
-ICDE,"IEEE International Conference on Data Engineering","IEEE",http://dblp.uni-trier.de/db/conf/icde/,A,Conference,4
-SIGIR,"International ACM SIGIR Conference on Research and Development in Information Retrieval","ACM",http://dblp.uni-trier.de/db/conf/sigir/,A,Conference,4
-VLDB,"International Conference on Very Large Data Bases","Morgan Kaufmann/ACM",http://dblp.uni-trier.de/db/conf/vldb/,A,Conference,4
-CIKM,"ACM International Conference on Information and Knowledge Management","ACM",http://dblp.uni-trier.de/db/conf/cikm/,B,Conference,4
-WSDM,"ACM International Conference on Web Search and Data Mining","ACM",http://dblp.uni-trier.de/db/conf/wsdm/,B,Conference,4
-PODS,"ACM SIGMOD-SIGACT-SIGAI Symposium on Principles of Database Systems","ACM",http://dblp.uni-trier.de/db/conf/pods/,B,Conference,4
-DASFAA,"International Conference on Database Systems for Advanced Applications","Springer",http://dblp.uni-trier.de/db/conf/dasfaa/,B,Conference,4
-ECML-PKDD,"European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases","Springer",http://dblp.uni-trier.de/db/conf/ecml/,B,Conference,4
-ISWC,"IEEE International Semantic Web Conference","IEEE",http://dblp.uni-trier.de/db/conf/semweb/,B,Conference,4
-ICDM,"IEEE International Conference on Data Mining","IEEE",http://dblp.uni-trier.de/db/conf/icdm/,B,Conference,4
-ICDT,"International Conference on Database Theory","Springer",http://dblp.uni-trier.de/db/conf/icdt/,B,Conference,4
-EDBT,"International Conference on Extending Database Technology","Springer",http://dblp.uni-trier.de/db/conf/edbt/,B,Conference,4
-CIDR,"Conference on Innovative Data Systems Research","Online Proceeding",http://dblp.uni-trier.de/db/conf/cidr/,B,Conference,4
-SDM,"SIAM International Conference on Data Mining","SIAM",http://dblp.uni-trier.de/db/conf/sdm/,B,Conference,4
-RecSys,"ACM Conference on Recommender Systems","ACM",https://dblp.org/db/conf/recsys/index.html,B,Conference,4
-APWeb,"Asia Pacific Web Conference","Springer",http://dblp.uni-trier.de/db/conf/apweb/,C,Conference,4
-DEXA,"International Conference on Database and Expert System Applications","Springer",http://dblp.uni-trier.de/db/conf/dexa/,C,Conference,4
-ECIR,"European Conference on Information Retrieval","Springer",http://dblp.uni-trier.de/db/conf/ecir/,C,Conference,4
-ESWC,"Extended Semantic Web Conference","Springer",http://dblp.uni-trier.de/db/conf/esws/,C,Conference,4
-WebDB,"International Workshop on Web and Databases","ACM",http://dblp.uni-trier.de/db/conf/webdb/,C,Conference,4
-ER,"International Conference on Conceptual Modeling","Springer",http://dblp.uni-trier.de/db/conf/er/,C,Conference,4
-MDM,"International Conference on Mobile Data Management","IEEE",http://dblp.uni-trier.de/db/conf/mdm/,C,Conference,4
-SSDBM,"International Conference on Scientific and Statistical Database Management","IEEE",http://dblp.uni-trier.de/db/conf/ssdbm/,C,Conference,4
-WAIM,"International Conference on Web Age Information Management","Springer",http://dblp.uni-trier.de/db/conf/waim/,C,Conference,4
-SSTD,"International Symposium on Spatial and Temporal Databases","Springer",http://dblp.uni-trier.de/db/conf/ssd/,C,Conference,4
-PAKDD,"Pacific-Asia Conference on Knowledge Discovery and Data Mining","Springer",http://dblp.uni-trier.de/db/conf/pakdd/,C,Conference,4
-WISE,"Web Information Systems Engineering International Conference on","Springer",http://dblp.uni-trier.de/db/conf/wise/,C,Conference,4
-ADMA,"Advanced Data Mining and Applications","Springer",https://dblp.org/db/conf/adma/index.html,C,Conference,4
+TODS,"ACM Transactions on Database Systems","ACM",http://dblp.uni-trier.de/db/journals/tods/,A,Journal,5
+TOIS,"ACM Transactions on Information Systems","ACM",http://dblp.uni-trier.de/db/journals/tois/,A,Journal,5
+TKDE,"IEEE Transactions on Knowledge and Data Engineering","IEEE",http://dblp.uni-trier.de/db/journals/tkde/,A,Journal,5
+VLDBJ,"The VLDB Journal","Springer",http://dblp.uni-trier.de/db/journals/vldb/,A,Journal,5
+TKDD,"ACM Transactions on Knowledge Discovery from Data","ACM",http://dblp.uni-trier.de/db/journals/tkdd/,B,Journal,5
+TWEB,"ACM Transactions on the Web","ACM",http://dblp.uni-trier.de/db/journals/tweb/,B,Journal,5
+AEI,"Advanced Engineering Informatics","Elsevier",http://dblp.uni-trier.de/db/journals/aei/,B,Journal,5
+DKE,"Data & Knowledge Engineering","Elsevier",http://dblp.uni-trier.de/db/journals/dke/,B,Journal,5
+DMKD,"Data Mining and Knowledge Discovery","Springer",http://dblp.uni-trier.de/db/journals/datamine/,B,Journal,5
+EJIS,"European Journal of Information Systems","Springer",http://dblp.uni-trier.de/db/journals/ejis/,B,Journal,5
+,"GeoInformatica","Springer",http://dblp.uni-trier.de/db/journals/geoinformatica/,B,Journal,5
+IPM,"Information Processing and Management","Elsevier",http://dblp.uni-trier.de/db/journals/ipm/,B,Journal,5
+,"Information Sciences","Elsevier",http://dblp.uni-trier.de/db/journals/isci/,B,Journal,5
+IS,"Information Systems","Elsevier",http://dblp.uni-trier.de/db/journals/is/,B,Journal,5
+JASIST,"Journal of the Association for Information Science and Technology","Wiley",http://dblp.uni-trier.de/db/journals/jasis/,B,Journal,5
+JWS,"Journal of Web Semantics","Elsevier",http://dblp.uni-trier.de/db/journals/ws/,B,Journal,5
+KAIS,"Knowledge and Information Systems","Springer",http://dblp.uni-trier.de/db/journals/kais/,B,Journal,5
+DPD,"Distributed and Parallel Databases","Springer",http://dblp.uni-trier.de/db/journals/dpd/,C,Journal,5
+I&M,"Information & Management","Elsevier",http://dblp.uni-trier.de/db/journals/iam/,C,Journal,5
+IPL,"Information Processing Letters","Elsevier",http://dblp.uni-trier.de/db/journals/ipl/,C,Journal,5
+IR,"Information Retrieval Journal","Springer",http://dblp.uni-trier.de/db/journals/ir/,C,Journal,5
+IJCIS,"International Journal of Cooperative Information Systems","World Scientific",http://dblp.uni-trier.de/db/journals/ijcis/,C,Journal,5
+IJGIS,"International Journal of Geographical Information Science","Taylor & Francis",http://dblp.uni-trier.de/db/journals/gis/,C,Journal,5
+IJIS,"International Journal of Intelligent Systems","Wiley",http://dblp.uni-trier.de/db/journals/ijis/,C,Journal,5
+IJKM,"International Journal of Knowledge Management","IGI",http://dblp.uni-trier.de/db/journals/ijkm/,C,Journal,5
+IJSWIS,"International Journal on Semantic Web and Information Systems","IGI",http://dblp.uni-trier.de/db/journals/ijswis/,C,Journal,5
+JCIS,"Journal of Computer Information Systems","IACIS",http://dblp.uni-trier.de/db/journals/jcis/,C,Journal,5
+JDM,"Journal of Database Management","IGI-Global",http://dblp.uni-trier.de/db/journals/jdm/,C,Journal,5
+JGITM,"Journal of Global Information Technology Management","Ivy League Publishing",https://dblp.org/db/journals/jgim/index.html,C,Journal,5
+JIIS,"Journal of Intelligent Information Systems","Springer",http://dblp.uni-trier.de/db/journals/jiis/,C,Journal,5
+JSIS,"The Journal of Strategic Information Systems","Elsevier",http://dblp.uni-trier.de/db/journals/jsis/,C,Journal,5
+DSE,"Data Science and Engineering","CCF",https://dblp.org/db/journals/dase/index.html,C,Journal,5
+SIGMOD,"ACM SIGMOD Conference","ACM",http://dblp.uni-trier.de/db/conf/sigmod/,A,Conference,5
+SIGKDD,"ACM SIGKDD Conference on Knowledge Discovery and Data Mining","ACM",http://dblp.uni-trier.de/db/conf/kdd/,A,Conference,5
+ICDE,"IEEE International Conference on Data Engineering","IEEE",http://dblp.uni-trier.de/db/conf/icde/,A,Conference,5
+SIGIR,"International ACM SIGIR Conference on Research and Development in Information Retrieval","ACM",http://dblp.uni-trier.de/db/conf/sigir/,A,Conference,5
+VLDB,"International Conference on Very Large Data Bases","Morgan Kaufmann/ACM",http://dblp.uni-trier.de/db/conf/vldb/,A,Conference,5
+CIKM,"ACM International Conference on Information and Knowledge Management","ACM",http://dblp.uni-trier.de/db/conf/cikm/,B,Conference,5
+WSDM,"ACM International Conference on Web Search and Data Mining","ACM",http://dblp.uni-trier.de/db/conf/wsdm/,B,Conference,5
+PODS,"ACM SIGMOD-SIGACT-SIGAI Symposium on Principles of Database Systems","ACM",http://dblp.uni-trier.de/db/conf/pods/,B,Conference,5
+DASFAA,"International Conference on Database Systems for Advanced Applications","Springer",http://dblp.uni-trier.de/db/conf/dasfaa/,B,Conference,5
+ECML-PKDD,"European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases","Springer",http://dblp.uni-trier.de/db/conf/ecml/,B,Conference,5
+ISWC,"IEEE International Semantic Web Conference","IEEE",http://dblp.uni-trier.de/db/conf/semweb/,B,Conference,5
+ICDM,"IEEE International Conference on Data Mining","IEEE",http://dblp.uni-trier.de/db/conf/icdm/,B,Conference,5
+ICDT,"International Conference on Database Theory","Springer",http://dblp.uni-trier.de/db/conf/icdt/,B,Conference,5
+EDBT,"International Conference on Extending Database Technology","Springer",http://dblp.uni-trier.de/db/conf/edbt/,B,Conference,5
+CIDR,"Conference on Innovative Data Systems Research","Online Proceeding",http://dblp.uni-trier.de/db/conf/cidr/,B,Conference,5
+SDM,"SIAM International Conference on Data Mining","SIAM",http://dblp.uni-trier.de/db/conf/sdm/,B,Conference,5
+RecSys,"ACM Conference on Recommender Systems","ACM",https://dblp.org/db/conf/recsys/index.html,B,Conference,5
+APWeb,"Asia Pacific Web Conference","Springer",http://dblp.uni-trier.de/db/conf/apweb/,C,Conference,5
+DEXA,"International Conference on Database and Expert System Applications","Springer",http://dblp.uni-trier.de/db/conf/dexa/,C,Conference,5
+ECIR,"European Conference on Information Retrieval","Springer",http://dblp.uni-trier.de/db/conf/ecir/,C,Conference,5
+ESWC,"Extended Semantic Web Conference","Springer",http://dblp.uni-trier.de/db/conf/esws/,C,Conference,5
+WebDB,"International Workshop on Web and Databases","ACM",http://dblp.uni-trier.de/db/conf/webdb/,C,Conference,5
+ER,"International Conference on Conceptual Modeling","Springer",http://dblp.uni-trier.de/db/conf/er/,C,Conference,5
+MDM,"International Conference on Mobile Data Management","IEEE",http://dblp.uni-trier.de/db/conf/mdm/,C,Conference,5
+SSDBM,"International Conference on Scientific and Statistical Database Management","IEEE",http://dblp.uni-trier.de/db/conf/ssdbm/,C,Conference,5
+WAIM,"International Conference on Web Age Information Management","Springer",http://dblp.uni-trier.de/db/conf/waim/,C,Conference,5
+SSTD,"International Symposium on Spatial and Temporal Databases","Springer",http://dblp.uni-trier.de/db/conf/ssd/,C,Conference,5
+PAKDD,"Pacific-Asia Conference on Knowledge Discovery and Data Mining","Springer",http://dblp.uni-trier.de/db/conf/pakdd/,C,Conference,5
+WISE,"Web Information Systems Engineering International Conference on","Springer",http://dblp.uni-trier.de/db/conf/wise/,C,Conference,5
+ADMA,"Advanced Data Mining and Applications","Springer",https://dblp.org/db/conf/adma/index.html,C,Conference,5
 TIT,"IEEE Transactions on Information Theory","IEEE",http://dblp.uni-trier.de/db/journals/tit/,A,Journal,6
 IANDC,"Information and Computation","Elsevier",http://dblp.uni-trier.de/db/journals/iandc/,A,Journal,6
 SICOMP,"SIAM Journal on Computing","SIAM",http://dblp.uni-trier.de/db/journals/siamcomp/,A,Journal,6
